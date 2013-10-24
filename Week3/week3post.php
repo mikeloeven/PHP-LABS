@@ -27,7 +27,7 @@ if (count($_POST)){
 ?>
         
         <form name="mainform" action="week3post.php" method="post">
-            Full Name: <input type="text" name="fullname" value=" <?php echo $fullname; ?> " /> <br />
+            Full Name: <input type="text" name="fullname" value="<?php echo $fullname; ?>" /> <br />
             Email: <input type="text" name="emial" value="<?php echo $email; ?>" /><br />
             Comments: <br /> <textarea cols="20" rows="5" name="comments" value="<?php echo $comments; ?>"></textarea> <br/>
             <input type="submit" value="submit" />
