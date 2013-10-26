@@ -1,8 +1,9 @@
 <?php
-
+include 'validator.php';
 $fullname = "";
 $email = "";
 $comments = "";
+
 
 if(count($_POST))
 {
@@ -20,9 +21,21 @@ if(count($_POST))
         $comments = $_POST["comments"];
         echo "<h1>$comments</h1>";
     }
+    
+    $valid = new validator();
+    if ($valid->validateFullName($fullname))
+    {
+       echo "<p>Fullname Is Valid</p>" ;
+    }
+    else
+    {
+         echo "<p>Fullname Is Not Valid</p>" ;
+    }
+    
+    
 }
     print_r($_POST);
-    if(!empty($fullname) && !empty($email) && !empty($comments))
+    if($valid->validateFullName($fullname) && !empty($fullname) && !empty($email) && !empty($comments))
     {
       
     
@@ -31,6 +44,8 @@ if(count($_POST))
     
     try{
         $stmt = $dbh->prepare('insert into week3 set fullname = :fullnameValue, email = :emailValue, comments = :commentsValue');
+        
+        $password = sha1($password);
         
         $stmt->bindParam(':fullnameValue', $fullname, PDO::PARAM_STR);
         $stmt->bindParam(':emailValue', $email, PDO::PARAM_STR);
