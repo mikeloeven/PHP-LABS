@@ -18,8 +18,8 @@ if (!empty($successMsg)){
         <form name="mainform" action="DbaseProcessing.php" method="post">
     
             Email: <input type="text" name="email" value="" /><br />
-            UserName: <input type="text" name="fName" value="" /> <br />
-            Comments: <br /> <textarea cols="20" rows="5" name="comments" value=""></textarea> <br/>
+            UserName: <input type="text" name="username" value="" /> <br />
+            {Password: <input type ="text" name="password" value">
             <input type="submit" value="submit"/>
             
         </form> 
@@ -28,9 +28,7 @@ if (!empty($successMsg)){
         
         
         
-<?php
 
-?>
 
     </body>
 </html>
