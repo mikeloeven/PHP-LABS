@@ -10,7 +10,7 @@
  *
  * @author Mikeloeven
  */
-class processlogin {
+class Login {
     
     public static function processLogin()
     {
@@ -22,6 +22,10 @@ class processlogin {
             
             $_SESSION["allowGuestbookAccess"] = true;
             header("Location:guestbook.php");
+        }
+        else if (count($_POST))
+        {
+            echo '<div class="forgot-password">Invalid Password</div>';
         }
     }
 
