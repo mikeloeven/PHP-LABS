@@ -27,6 +27,8 @@ and open the template in the editor.
          * 3. Take the validated data and insert into the database with bindparam 
          * before excuting
          */
+        
+        
         ?>
     </body>
 </html>

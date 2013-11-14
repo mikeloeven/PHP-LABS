@@ -34,9 +34,34 @@ and open the template in the editor.
         $statement = $db->prepare('select * from addressbook');
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+     
+        
+        echo '<table border="1">';
+        
+        echo '<tr><th>ID:</th><th>Address:</th><th>City:</th><th>State:</th><th>Zip:</th><th>Name:</th></tr>';
 
         
-        // put your code here
+        foreach($result as $value)
+        {
+            echo'<tr>';    
+            foreach($value as $Item)
+                {
+                    echo '<td>'.$Item.'</td>';
+                }
+            echo'</tr>';        
+            
+            
+        }
+        echo '</table>';
+        
+        
+        
+        
         ?>
+        
+        
+            
+        
+        
     </body>
 </html>

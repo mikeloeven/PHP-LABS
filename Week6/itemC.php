@@ -13,6 +13,15 @@ and open the template in the editor.
         <?php
         session_start();
         $_SESSION['auth']=false;
+        print_r($_SESSION);
+        
+        if(isset($_SESSION['count'])==false)
+        {
+            $_SESSION['count']=0;
+        }
+
+        
+        
         /*
         * Please follow the instructions below.
         * 
@@ -34,22 +43,51 @@ and open the template in the editor.
          */
         
         // put your code here
-        
+        echo count($_POST);
         if(count($_POST))
         {
-        
+            
+            if($_SESSION['count'] > 5)
+            {
+                echo "<h1> ACCOUNT LOCKOUT <h1/>";
+                if(filter_input(INPUT_POST, 'reset') == "y")
+            {
+                
+                 $_SESSION['count'] = 0;
+            
+            }
+            }
+             
+
+                
+            
+            else
+            {
             if ((filter_input(INPUT_POST, 'passcode'))=='demo')
             {
+                $_SESSION['count']=0;
                 $_SESSION['auth']=true;
                 header('Location: itemD.php');
+                session_regenerate_id();
+            }
+            else 
+            {
+                $_SESSION['count'] ++;
+                session_regenerate_id();
+            }
             }
             
         }
-        
+        else
+        $_SESSION['count'] ++;
+        session_regenerate_id();
         ?>
         
         <form action="#" method="post">
-          Passcode  <input type="password" name="passcode" value="" />
+          <label>Passcode: <label/>
+          <input type="password" name="passcode" value="" />
+          <label>Reset Attempts: y/n <label/>
+          <input type="text" name="reset" value="" />
           <br />
           <br />
           <input type="submit" value="Submit" />

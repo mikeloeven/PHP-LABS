@@ -36,6 +36,29 @@ and open the template in the editor.
         */
        
         // put your code here
+        
+ 
+      
+        
+        if(array_key_exists('signup', $_POST))
+        {
+            echo "<h1>Signup Submitted</h1>";
+            foreach($_POST as $value)
+            {
+                Echo '<h3>:'.$value.'</h3>';
+            }
+            
+                
+        }
+        else if(array_key_exists('login', $_POST))
+        {
+            echo"<h1>Login Form Submitted</h1>";
+            foreach($_POST as $value)
+            {
+                Echo '<h3>:'.$value.'</h3>';
+            }
+            
+        }
         ?>
         
         <h1>Signup</h1>
