@@ -12,6 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         session_start();
+        $_SESSION['auth']=false;
         /*
         * Please follow the instructions below.
         * 
@@ -33,6 +34,18 @@ and open the template in the editor.
          */
         
         // put your code here
+        
+        if(count($_POST))
+        {
+        
+            if ((filter_input(INPUT_POST, 'passcode'))=='demo')
+            {
+                $_SESSION['auth']=true;
+                header('Location: itemD.php');
+            }
+            
+        }
+        
         ?>
         
         <form action="#" method="post">

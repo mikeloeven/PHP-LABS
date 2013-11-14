@@ -11,6 +11,8 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        
+        
             /*
              * Please follow the instructions below.
              * 
@@ -48,8 +50,21 @@ and open the template in the editor.
 
             */
         // put your code here
+        
+        echo print_r($_GET)."<br /><br /><br />";
+        
+        if(count($_GET)!=null)
+        {
+            echo 
+            "<p>Name: ".$_GET['name']."</p>".
+            "<p>City: ".$_GET['city']."</p>".
+            "<p>State: ".$_GET['state']."</p>".
+            "<p>Page: ".$_GET['page']."</p>";
+        
+        }
+        else echo "<p>empty get</p>"
         ?>        
         
-        <a href="#?page=demo&name=gabriel">Click me</a>
+        <a href="?page=demo&name=gabriel&city=warwick&state=RI">Click me</a>
     </body>
 </html>

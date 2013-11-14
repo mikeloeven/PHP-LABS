@@ -41,12 +41,15 @@ and open the template in the editor.
         
         // put your code here
         
+            echo filter_input(INPUT_POST,'email');
+            
+        
         
         ?>
         
         
         <form action="#" method="post">            
-            <label>Email</label> <input type="text" name="email" value="" /> <br />
+            <!--<label>Email</label> <input type="text" name="email" value="" /> <br />-->
             <label>Password</label> <input type="password" name="password" value="" /> <br />
             <br />
             <input type="submit" name="submit" value="Submit" />
