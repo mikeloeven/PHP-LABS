@@ -11,7 +11,16 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        include 'dependancies.php';
+        
+        if (count($_POST))
+        {
+        
+            echo '<h1>'.Submit::LoadDb($_POST).'</h1>';
+        }
+        
+        else echo '<h1> You Must Enter Something</h2>'
+// put your code here
         
         
         /*
@@ -30,5 +39,21 @@ and open the template in the editor.
         
         
         ?>
+         <form name="mainform" action="#" method="post">
+    
+           
+            Name: <input type="text" name="name" value="" /> <br />
+            Address: <input type ="text" name="address" value=""/> <br />
+            City: <input type ="text" name="city" value=""/> <br />
+            State:<input type ="text" name="state" value=""/> <br />
+            Zip: <input type ="text" name="zip" value=""/> <br />
+            
+            
+            <input type="submit" value="submit"/>
+            
+        </form> 
+        
     </body>
+    
+    
 </html>
