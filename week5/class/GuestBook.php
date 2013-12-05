@@ -12,51 +12,80 @@
  */
 class GuestBook extends DB {
     
-    public static function getGuestbookData()
+    public function getGuestbookData()
     {
-        $result = array();
-        $db = $this->getDB();
         
-        foreach ($result as $value)
+        $db = $this->getDB();
+        $statement = $db->prepare('select * from guestbook');
+        $statement->execute();
+        $Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+        
+        
+        echo 
+        '<table border="1" >
+         <tr>
+         <th>ID:</th>
+         <th>Name:</th>
+         <th>Email:</th>
+         <th>Comments:</th>
+         </tr>
+        ';
+        
+        
+        foreach ($Result as $Value)
         {
-            echo "<p>".$value."</p>";
+            echo '<tr>
+                ';
+            foreach ($Value as $Entry)
+            {
+                echo '<td>'.$Entry."</td>
+                    ";
+            }
+            echo '
+                </tr>
+                ';
         }
+        echo '</table>';
         
       
     }
     //validate input data and calls database input function
-    public static function guestBookValidate($Post) 
+    public function guestBookValidate($Post) 
     {
-        if (Validator::validateUsername($Post['name'])&&Validator::validateEmail($Post['email'])&&Validator::validateUsername('comments'))
+        
+        if (is_array($Post)&&count($Post)&&Validator::validateUsername($Post['name'])&&Validator::validateEmail($Post['email'])&&Validator::validateUsername('comments'))
         {
-            guestbookAdd($Post);
+            
+            $this -> guestbookAdd($Post);
         }
         else
         {
-            $errorMsg = "<h3>INFO NOT SUBMITTED</h3>";
+            $errorMsg = "<h3>INFO NOT SUBMITTED VALIDATION ISSUE</h3>";
             return $errorMsg;
         }
     }
     
     protected function guestbookAdd($Post)
     {
+        print_r($Post);
         $db = $this -> getDB();
         if (null != $db)
         {
-                $stmnt = $db -> prepare('insert into guestbook set name=:nameValue email = :emailValue comments = :commentValue');
+                $stmnt = $db -> prepare('insert into guestbook set name=:nameValue, email=:emailValue, comments = :commentValue');
                 $stmnt -> bindParam(':nameValue', $Post["name"], PDO::PARAM_STR);
                 $stmnt -> bindParam(':emailValue', $Post["email"], PDO::PARAM_STR);
-                $stmnt -> bindParam(':commentsValue', $Post["comments"], PDO::PARAM_STR);
+                $stmnt -> bindParam(':commentValue', $Post["comments"], PDO::PARAM_STR);
                 
         if($stmnt->execute())
         {
             $successMsg = "<h3>INFO SUBMITTED</h3>";
-            return $successMsg;
+            echo $successMsg;
         }
         else{
             
-           $errorMsg = "<h3>INFO NOT SUBMITTED</h3>";
-           return $errorMsg;
+           $errorMsg = "<h3>INFO NOT SUBMITTED DATABASE ISSUE</h3>";
+           echo $errorMsg;
             }
         }
      }

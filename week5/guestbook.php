@@ -15,19 +15,24 @@
     
     <body>
          
-        
+      
             
         <?php
-        GuestBook::getGuestbookData();
+        
         
         include 'dependancies.php';
+        $guestbook = new GuestBook();
+        
+        
         //checks to see if the page was accessed without logging in
         Login::isLoggedIn();
+        
+      
         if (isset($_POST))
         {
-            GuestBook::guestbookValidate($_POST);
+            $guestbook ->guestBookValidate($_POST);
         }
-        
+         $guestbook -> getGuestbookData();
         
         
         ?>
