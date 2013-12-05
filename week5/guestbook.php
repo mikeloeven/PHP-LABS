@@ -18,9 +18,16 @@
         
             
         <?php
+        GuestBook::getGuestbookData();
+        
         include 'dependancies.php';
         //checks to see if the page was accessed without logging in
         Login::isLoggedIn();
+        if (isset($_POST))
+        {
+            GuestBook::guestbookValidate($_POST);
+        }
+        
         
         
         ?>

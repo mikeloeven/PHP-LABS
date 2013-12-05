@@ -12,33 +12,54 @@
  */
 class GuestBook extends DB {
     
-    public function getGuestbookData()
+    public static function getGuestbookData()
     {
         $result = array();
         $db = $this->getDB();
         
+        foreach ($result as $value)
+        {
+            echo "<p>".$value."</p>";
+        }
+        
       
     }
     //validate input data and calls database input function
-    public function guestbookValidate()
+    public static function guestBookValidate($Post) 
     {
-        if (count($_POST))
+        if (Validator::validateUsername($Post['name'])&&Validator::validateEmail($Post['email'])&&Validator::validateUsername('comments'))
         {
-            // check validate fields using validator class 
-            
-            
-        }    
+            guestbookAdd($Post);
+        }
+        else
+        {
+            $errorMsg = "<h3>INFO NOT SUBMITTED</h3>";
+            return $errorMsg;
+        }
     }
     
-    protected function guestbookAdd()
+    protected function guestbookAdd($Post)
     {
         $db = $this -> getDB();
         if (null != $db)
         {
-                $stmt = $db -> prepare('insert into guestbook set name=:nameValue email = :emailValue comments = :commentValue');
-                $stmnt -> bindParam(':nameValue', $_POST["name"], PDO::PARAM_STR);
+                $stmnt = $db -> prepare('insert into guestbook set name=:nameValue email = :emailValue comments = :commentValue');
+                $stmnt -> bindParam(':nameValue', $Post["name"], PDO::PARAM_STR);
+                $stmnt -> bindParam(':emailValue', $Post["email"], PDO::PARAM_STR);
+                $stmnt -> bindParam(':commentsValue', $Post["comments"], PDO::PARAM_STR);
+                
+        if($stmnt->execute())
+        {
+            $successMsg = "<h3>INFO SUBMITTED</h3>";
+            return $successMsg;
         }
+        else{
+            
+           $errorMsg = "<h3>INFO NOT SUBMITTED</h3>";
+           return $errorMsg;
+            }
         }
+     }
 }
 
 ?>
