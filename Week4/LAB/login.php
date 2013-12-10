@@ -12,6 +12,8 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
+        
+        //added an if statement to surpress potential errors and avoid setting variables 
         if (!isset($_SESSION))
         {
         session_start();        
@@ -21,6 +23,7 @@ and open the template in the editor.
         /*
          * If user is logged in redirect to admin page.
          */
+        //checks for existing session bt checking the isLoggedIn Variable 
         if ($_SESSION["isLoggedIn"] == true)
             {
                header("Location:admin.php");
@@ -28,7 +31,7 @@ and open the template in the editor.
         
         include 'Config.php';
         include 'Validator.php';
-        
+       // not sure if this pregenerated code is actually functional as i didn't need to do anything to it 
         $token = uniqid();
         
         // advoid session highjacking
@@ -74,6 +77,7 @@ and open the template in the editor.
                 /*
                  * should only show message if a post has been made
                  */
+                //checks to see if anything is in post
                 if (count($_POST)>0)
                 {
                 echo "<p>Username or password is not correct</p>";
