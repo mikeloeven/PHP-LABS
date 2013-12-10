@@ -22,6 +22,15 @@ and open the template in the editor.
          * use $_GET super global
          * distroy the session and send to login page
          */
+        if (count($_GET)==1)
+        {
+        if ($_GET['logout']==1)
+        {
+            session_destroy();
+            header("Location:login.php");
+            
+        }
+        }
         ?>
         
         <h1>You made it</h1>

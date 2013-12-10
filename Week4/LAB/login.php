@@ -12,15 +12,22 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
+        if (!isset($_SESSION))
+        {
         session_start();        
+        $_SESSION["isLoggedIn"] = false;
         session_regenerate_id(true);
-        
+        }
         /*
          * If user is logged in redirect to admin page.
          */
+        if ($_SESSION["isLoggedIn"] == true)
+            {
+               header("Location:admin.php");
+            }
         
         include 'Config.php';
-        include 'validator.php';
+        include 'Validator.php';
         
         $token = uniqid();
         
@@ -62,11 +69,16 @@ and open the template in the editor.
                 ) {
                $_SESSION["isLoggedIn"] = true;
                header("Location:admin.php");
-            } else {
-                if (count($_POST))
+            } 
+            else {
+                /*
+                 * should only show message if a post has been made
+                 */
+                if (count($_POST)>0)
                 {
                 echo "<p>Username or password is not correct</p>";
-        
+                }
+                
                 }
         
         ?>
