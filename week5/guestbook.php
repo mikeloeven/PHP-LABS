@@ -17,7 +17,26 @@
          
       
             
-        <?php
+        
+        
+    <form method="post" action="guestbook.php" class="login">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="">
+        <br/>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="">
+        <br/>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" id="comments" value=""></textarea>
+        <br/>
+        <br/>
+        <button type="submit" class="login-button" style="text-align: left;">Login</button>
+      
+    </form>
+        
+        
+        <div>
+            <?php
         
         
         include 'dependancies.php';
@@ -36,21 +55,7 @@
         
         
         ?>
-        
-    <form method="post" action="guestbook.php" class="login">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="">
-        <br/>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email" value="">
-        <br/>
-        <label for="comments">Comments:</label>
-        <textarea name="comments" id="comments" value=""></textarea>
-        <br/>
-        <br/>
-        <button type="submit" class="login-button" style="text-align: left;">Login</button>
-      
-    </form>
+        </div>
         
         
         

@@ -77,4 +77,8 @@ var_dump(shuffle($ar2));
 var_dump(count($ar2));
 print_r(sort($ar2));
 
+echo '<table>
+
+
+
 ?>
