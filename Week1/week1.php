@@ -1,3 +1,11 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    
+    <body>
+        
+
 <?php
  
  $s1 = "string 1";
@@ -77,8 +85,63 @@ var_dump(shuffle($ar2));
 var_dump(count($ar2));
 print_r(sort($ar2));
 
+
+function token() {	
+	return sha1( uniqid(mt_rand(), true) );
+}
+
+
+
 echo '<table>
+      <tr>
+      <th>Entry</th>
+      <th>Token</th>
+      <th>Time</th>
+      </tr>';
+$loopcount = 1;
+
+while ($loopcount <= 100):
+
+    
+    echo '<tr>
+          <td>';
+    echo $loopcount;
+    echo '</td>
+          <td>';
+    echo token();
+    echo '</td>
+          <td>';
+    echo date("D M d, Y G:i a");
+    echo '</td>
+          </tr>';
+    $loopcount++;
+    
+    echo '<tr class="silver">
+          <td class="silver">';
+    echo $loopcount;
+    echo '</td>
+          <td class="silver">';
+    echo token();
+    echo '</td>
+          <td class="silver">';
+    echo date("D M d, Y G:i a");
+    echo '</td>
+          </tr>';
+    $loopcount++;
+  
+endwhile;
+    echo "</table>";
+
+
+$arcolor = array("red", "yellow", "green", "blue");
+$arword = array("cat", "dog", "horse", "cow");
+ 
+echo "<p>todays lab has been brought to you by a: ".$arcolor[array_rand($arcolor)]." ".$arword[array_rand($arword)]."</p>";
+
 
 
 
 ?>
+
+</body>
+</html>

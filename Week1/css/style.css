@@ -1,0 +1,33 @@
+table
+{
+    border: #000000 solid;
+}
+
+th
+{
+    border: #000000 solid;
+}
+
+tr
+{
+    
+    border: #000000 solid;
+    
+}
+td
+{
+  
+    border: #000000 solid
+}
+
+tr.silver
+{
+    background: silver;
+    border: #000000 solid;
+    
+}
+td.silver
+{
+    background: silver;
+    border: #000000 solid
+}
