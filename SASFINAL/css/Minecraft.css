@@ -23,6 +23,8 @@ body{
 align:center;
     margin-right:auto;
     font-family: 'Courier New',Courier,monospace;
+    color:ghostwhite;
+    text-shadow: 1px 0px 0px;
     background: url("../img/indexbackgroundMC.png") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -32,6 +34,8 @@ align:center;
         
 
 }
+
+
 
 div.title{
     margin-top: -.5em;
@@ -54,12 +58,51 @@ div.title{
           
 
 }
+div.navbar{
+    margin-top: -.10em;
+    margin-left: -.5em;
+    padding-bottom: -1em;
+    alignment-baseline: before-edge;
+    background-color:#ffffff;
+    border: saddlebrown inset .3em;
+    background: url("../img/sky.png") ;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	background-color:#ffffff;
+    
+    
+    
+   
+   
+          
+
+}
+div.button
+{
+    display: inline-block;
+    margin-top: -.10em;
+    margin-left: .0em;
+    padding-right: .2em ;
+    padding-left: .2em;
+    alignment-baseline: before-edge;
+    background-color:#ffffff;
+    border: saddlebrown solid .2em;
+
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	background-color:#87C5FF;
+}
 
 h1.title {text-align:center; font-variant:all-caps; font-size:400%; color: #888; line-height:0;background-color: #ffffff;text-shadow:3px 3px 1px gainsboro}
 h1.sponsor {text-align:center; font-variant:all-caps; font-size:150%; color:#5526a6; line-height:1;}
 h2.subtitle {text-align:center; font-variant:all-caps; font-size:50%; color:#5526a6;}
+h3.bodytitle {text-align: center}
 p.missionstatement{text-align:center; font-variant:all-caps; font-size:120%; font-weight:bold; color:#5526a6; background:#000000;}
-
+p.body{text-align:left; padding-left: 12px; font-size: 12px}
 table.sales {border: 8px; border-style:groove; border-color: #451B85 ;background:#000000;}
 th.sales {font-weight:900;font-size:25pt;color:#451B85;}
 td.sales {border-style:groove; border-color:#451B85; font-family:impact; line-height:2; letter-spacing:1px; text-align:center;color:#451B85;}
