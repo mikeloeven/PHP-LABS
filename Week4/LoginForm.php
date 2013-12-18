@@ -16,7 +16,7 @@
             $token = uniqid();
                
             
-            /*//blocks session hijacking
+            //blocks session hijacking
             if(!isset($_SESSION["token"])){
                 $_SESSION["token"] = $token;
             }
@@ -42,7 +42,7 @@
                 exit();
             }
             
-          */  
+         
         $_SESSION["token"] = $token;
         
         $username = (isset($_POST["username"]) ) ? $_POST["username"]:"";

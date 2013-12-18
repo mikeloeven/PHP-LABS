@@ -1,35 +1,23 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Validator
- *
- * @author GFORTI
- */
-class Validator {
-    //put your code here
+class dbasevalidator {
       
-    public static function emailIsValid( $str ) {
-        if ( is_string($str) && !empty($str) ) {
+    public static function validateEmail( $eml ) {
+        if ( is_string($eml) && !empty($eml) ) {
             return true;
         }        
         return false; 
     }
     
-    public static function usernameIsValid( $str ) {
-        if ( is_string($str) && !empty($str) ) {
+    public static function validateUser( $usr ) {
+        if ( is_string($usr) && !empty($usr) ) {
             return true;
         }        
         return false; 
     }
     
-    public static function passwordIsValid( $str ) {
-        if ( is_string($str) && !empty($str) ) {
+    public static function validatePassword( $pwd ) {
+        if ( is_string($pwd) && !empty($pwd) ) {
             return true;
         }        
         return false; 
@@ -37,7 +25,7 @@ class Validator {
     
 
     
-    public static function loginIsValid( $username, $password ) {
+    public static function credentialsCheck( $username, $password ) {
         $password = sha1($password);
          $db = new PDO(Config::DB_DNS ,Config::DB_USER,Config::DB_PASSWORD);
         

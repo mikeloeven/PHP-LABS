@@ -6,12 +6,22 @@
 * and open the template in the editor.
 */
 
-spl_autoload_register(function($class) {
-    include 'class/'.$class . '.php';
+spl_autoload_register(function($class) 
+{
+    include 'class/'.$class.'.php';
 });
 // session
+if (!isset($_SESSION))
+{
 session_start();
+}
 session_regenerate_id(true);
+if(isset($_SESSION["loggedin"]))
+{
+
+}
+else{$_SESSION["loggedin"]=false;}
+
         
         
 ?>

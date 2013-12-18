@@ -12,3 +12,5 @@ AJAXtext.onreadystatechange=function()
 };
 AJAXtext.open('GET', url, true);
 AJAXtext.send();
+
+

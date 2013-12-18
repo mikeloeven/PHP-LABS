@@ -4,6 +4,7 @@
 
 
 div.bodydiv {
+    display: block;
     background: url("../img/StoneTile.png") repeat;
 	-webkit-background-size: auto;
 	-moz-background-size: auto;
@@ -19,6 +20,7 @@ div.bodydiv {
     border-right:saddlebrown solid 4px;
     border-top:saddlebrown solid 4px;
 }
+div.hiddendiv {display:none}
 body{
 align:center;
     margin-right:auto;
@@ -58,6 +60,10 @@ div.title{
           
 
 }
+div.titlebackground
+{
+    
+}
 div.navbar{
     margin-top: -.10em;
     margin-left: -.5em;
@@ -88,6 +94,7 @@ div.button
     padding-left: .2em;
     alignment-baseline: before-edge;
     background-color:#ffffff;
+    color: #ffffff;
     border: saddlebrown solid .2em;
 
 	-webkit-background-size: contain;
@@ -97,10 +104,38 @@ div.button
 	background-color:#87C5FF;
 }
 
+div.form
+{
+    margin-top:  8em;
+    margin-left: 6em;
+}
+
+div.errdiv
+{
+    margin-top: -.10em;
+    margin-left: 0em;
+    padding-bottom: -1em;
+    alignment-baseline: before-edge;
+    background-color:red;
+    border: saddlebrown inset .3em;
+
+    
+}
+input
+{
+    background-color: lightslategray;
+    color: white;
+    border: #888 solid;
+
+    
+}
+
+a{text-decoration: none; color: inherit;}
 h1.title {text-align:center; font-variant:all-caps; font-size:400%; color: #888; line-height:0;background-color: #ffffff;text-shadow:3px 3px 1px gainsboro}
 h1.sponsor {text-align:center; font-variant:all-caps; font-size:150%; color:#5526a6; line-height:1;}
 h2.subtitle {text-align:center; font-variant:all-caps; font-size:50%; color:#5526a6;}
-h3.bodytitle {text-align: center}
+h3.bodytitle {text-align: center;}
+h3.err {text-align: center; color: black;}
 p.missionstatement{text-align:center; font-variant:all-caps; font-size:120%; font-weight:bold; color:#5526a6; background:#000000;}
 p.body{text-align:left; padding-left: 12px; font-size: 12px}
 table.sales {border: 8px; border-style:groove; border-color: #451B85 ;background:#000000;}

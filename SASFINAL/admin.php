@@ -11,8 +11,9 @@ and open the template in the editor.
     <link rel="stylesheet" type="text/css" href="css/Minecraft.css">
     </head>
     <body>
-        <div class="title"><a href = "index.php" style="text-decoration: none"><h1 class="title">█ SAAS DEMO █</h1></a></div>
-        <div class="navbar"><h3 class="title"> Login </h3></div>
-        <div class="bodydiv"><h1 style="text-align: center;">test</h1></div>
+        <body>
+       <div class="title"><a href = "index.php" style="text-decoration: none"><h1 class="title">█ SAAS DEMO █</h1></a></div>
+        <div class="navbar"><div class="button"><a href="login.php?form=login"><h3 class="title"> Login </h3></a></div><div class="button"><a href="login.php?form=signup"><h3 class="title"> Signup </h3></a></div></div>
+        <div class="bodydiv">
     </body>
 </html>
