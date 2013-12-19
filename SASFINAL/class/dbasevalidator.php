@@ -2,7 +2,7 @@
 
 class dbasevalidator {
 
-      
+   //regex for validating email format    
     public static function validateEmail( $email ) 
         {
         
@@ -18,7 +18,7 @@ class dbasevalidator {
             else return false; 
         }
     
-        
+   //checks to make sure url is valid and not empty
         public static function validateUrl( $url ) 
         {
             if ( is_string($url) && !empty($url) ) 
@@ -32,6 +32,7 @@ class dbasevalidator {
             else return false; 
         }
     
+        
     public static function validatePassword( $pwd ) 
         {
             if ( is_string($pwd) && !empty($pwd) ) 
@@ -43,13 +44,13 @@ class dbasevalidator {
     
 
     
-    public static function validateCredentials( $username, $password ) 
+    public static function validateCredentials( $email, $password ) 
         {
             $password = sha1($password);
-            $db = new PDO(Config::DB_DNS ,Config::DB_USER,Config::DB_PASSWORD);
+            $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
         
-            $stmt = $db->prepare('select username, password from signup where username = :usernameValue limit 1');
-            $stmt->bindParam(':usernameValue', $username, PDO::PARAM_STR);
+            $stmt = $db->prepare('select email, password from users where email = :usernameValue limit 1');
+            $stmt->bindParam(':usernameValue', $email, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll();
         
@@ -67,8 +68,8 @@ class dbasevalidator {
      
        
         public static function duplicateEmail($email)
-     {
-         {
+        {
+         
             $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
         
             $stmt = $db->prepare('select email from users where email = :emailValue limit 1');
@@ -86,5 +87,20 @@ class dbasevalidator {
          }
     
     
+        
+    
+    public static function getPageName($email)
+    {
+        $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
+        
+            $stmt = $db->prepare('select website from users where email = :emailValue limit 1');
+            $stmt->bindParam(':emailValue', $email, PDO::PARAM_STR);
+            
+            
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            print_r($result);
+            return $result;
     }
+            
 }
