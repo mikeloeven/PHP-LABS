@@ -112,15 +112,32 @@ div.form
 
 div.errdiv
 {
-    margin-top: -.10em;
+    margin-bottom: -5em;
     margin-left: 0em;
     padding-bottom: -1em;
     alignment-baseline: before-edge;
-    background-color:red;
+    background: url("../img/lava.gif") ;
     border: saddlebrown inset .3em;
 
     
 }
+div.sucdiv
+{
+
+margin-bottom: -5em;
+    margin-left: 0em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    alignment-baseline: before-edge;
+    background: url("../img/diamond.jpg") ;
+    border: saddlebrown inset .3em;  
+    -moz-background-size:130% 100%;
+-webkit-background-size:130% 100%;
+background-size:130% 100%;
+background-position: center ;
+
+}
+
 input
 {
     background-color: lightslategray;
@@ -135,7 +152,8 @@ h1.title {text-align:center; font-variant:all-caps; font-size:400%; color: #888;
 h1.sponsor {text-align:center; font-variant:all-caps; font-size:150%; color:#5526a6; line-height:1;}
 h2.subtitle {text-align:center; font-variant:all-caps; font-size:50%; color:#5526a6;}
 h3.bodytitle {text-align: center;}
-h3.err {text-align: center; color: black;}
+h3.err {text-align: center; color: #7023B1; background: url("../img/obsidian.png"); }
+h3.suc {text-align: center; color: black; background: url("../img/diamondblock.jpg"); }
 p.missionstatement{text-align:center; font-variant:all-caps; font-size:120%; font-weight:bold; color:#5526a6; background:#000000;}
 p.body{text-align:left; padding-left: 12px; font-size: 12px}
 table.sales {border: 8px; border-style:groove; border-color: #451B85 ;background:#000000;}
