@@ -114,7 +114,7 @@ and open the template in the editor.
                    if (dbasevalidator::validateCredentials($_POST['LIemail'], $_POST['LIpassword']))
                    {
                        $_SESSION['loggedIn']=true;
-                       $_SESSION['website']=  dbasevalidator::getPageName($_POST['LIemail']);
+                       $_SESSION['adminID']= dbasevalidator::getUID($_POST['LIemail']);
                        header("Location:admin.php");
                        
                              

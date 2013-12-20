@@ -30,13 +30,13 @@ class pagehandling
             }
             else return $result;
     }
-    public static function pageinfobyUsr($email)
+    public static function pageinfobyUsr($UID)
     {
             
             $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
 
-            $stmt = $db->prepare('select * from page where user_id in(select user_id from users where email = :emailValue)');
-            $stmt->bindParam(':emailValue', $email, PDO::PARAM_STR);
+            $stmt = $db->prepare('select * from page where user_id in(select user_id from users where email = :UIDValue)');
+            $stmt->bindParam(':UIDValue', $UID, PDO::PARAM_STR);
 
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

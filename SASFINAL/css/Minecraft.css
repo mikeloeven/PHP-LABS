@@ -153,6 +153,14 @@ input
 
     
 }
+textarea
+{
+    background-color: lightslategray;
+    color: white;
+    border: #888 solid;
+    
+}
+
 
 a{text-decoration: none; color: inherit;}
 h1.title {text-align:center; font-variant:all-caps; font-size:400%; color: #888; line-height:0;background-color: #ffffff;text-shadow:3px 3px 1px gainsboro}

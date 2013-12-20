@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="css/Minecraft.css">
     </head>
+    
     <body>
         <body>
        <div class="title"><a href = "index.php" style="text-decoration: none"><h1 class="title">█ SAAS DEMO █</h1></a></div>
@@ -18,8 +19,27 @@ and open the template in the editor.
             <div id="logindiv" class="form">
                 <h3 class ="subtitle">Login</h3>
                 
-                
+           <?php
+                if (isset($_POST['update'])&&$_POST['update']==true)
+                {
+                    
+                    if (isset($_POST['adminID']) && !dbasevalidator::getPAGEID($_POST['adminID']))
+                        [
+                            
+                        ]
+                    
+                    
+                    
+                    
+                }
+           ?>
            <form name="login" class="signup" action="" method="post">
+           
+               
+           <Label> Address: </Label><br/>
+           <input type="text" name="address" value=""/>
+           <br/>
+           <br/>            
            <Label> theme: </Label> <br/>
            <select name="theme">
                <option value="minecraft.css" selected>Minecraft</option>
@@ -32,9 +52,24 @@ and open the template in the editor.
            <input type="text" name="address" value=""/>
            <br/>
            <br/>
+           <Label> Phone: </Label><br/>
+           <input type="text" name="phone" value=""/>
+           <br/>
+           <br/>
+           <Label> Email: </Label><br/>
+           <input type="text" name="email" value=""/>
+           <br/>
+           <br/>
+           <Label> About: </Label><br/>
+           <textarea name="About" rows ="10"></textarea>
+           <br/>
+           <br/>
+           <input type="hidden" name ="update" value="true"
            <input type="submit" value="submit"/>
            </form>
            </div>
+            
+            
         </div
     </body>
 </html>

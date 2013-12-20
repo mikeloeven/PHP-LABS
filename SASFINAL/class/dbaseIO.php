@@ -49,6 +49,50 @@ class dbaseIO {
     {
         
     }
+    
+    
+    public static function addPage($POST)
+            
+
+    {
+        $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
+        
+        $UID = $POST;
+        $title;
+        $theme;
+        $address;
+        $phone;
+        $email;
+        $about;
+        
+        
+        
+        try{
+        $stmt = $db->prepare('insert into users set website = :websiteValue, email = :emailValue, password = :passwordValue');
+
+        $stmt->bindParam(':websiteValue', $url, PDO::PARAM_STR);
+        $stmt->bindParam(':emailValue', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':passwordValue', $password, PDO::PARAM_STR);
+        
+        if($stmt->execute())
+        {
+            $Msg = 1;
+        }
+        else{
+           $Msg = 2;
+        }
+        
+       }
+        
+        catch(PDOException $e)
+        {
+            $Msg =0;
+        }
+        return $Msg;
+    }
+    
+    
+    
             
 }
 

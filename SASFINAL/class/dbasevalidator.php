@@ -33,6 +33,19 @@ class dbasevalidator {
         }
     
         
+        public static function validatePhone( $url ) 
+        {
+            if ( is_string($url) && !empty($url) ) 
+                {
+                    if (preg_match('\((?<AreaCode>\d{3})\)\s*(?<Number>\d{3}(?:-|\s*)\d{4})', $url))
+                    {
+                    return true;
+                    }
+                    else return false;
+                }        
+            else return false; 
+        }
+        
     public static function validatePassword( $pwd ) 
         {
             if ( is_string($pwd) && !empty($pwd) ) 
@@ -90,12 +103,25 @@ class dbasevalidator {
     
         
     
-    public static function getPageName($email)
+    public static function getUID($email)
     {
         $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
         
-            $stmt = $db->prepare('select website from users where email = :emailValue limit 1');
+            $stmt = $db->prepare('select user_id from users where email = :emailValue limit 1');
             $stmt->bindParam(':emailValue', $email, PDO::PARAM_STR);
+            
+            
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            print_r($result);
+            return $result;
+    }
+    public static function getPAGEID($UID)
+    {
+        $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
+        
+            $stmt = $db->prepare('select title from page where user_id = :UIDValue limit 1');
+            $stmt->bindParam(':UIDvalue', $UID, PDO::PARAM_STR);
             
             
             $stmt->execute();
