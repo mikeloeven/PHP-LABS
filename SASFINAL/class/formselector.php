@@ -41,6 +41,15 @@ class formselector {
                 }
             }
     }
+    public static function themeSelect($pageinfo)
+    {   
+        $theme = $pageinfo['theme'];
+        
+        
+        echo '<script type="text/javascript">';
+        echo 'document.getElementById("theme").href = "css/'.$theme.'"';
+        echo '</script>';
+    }
 }
 
 ?>

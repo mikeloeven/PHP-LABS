@@ -3,6 +3,19 @@
 class dbasevalidator {
 
    //regex for validating email format    
+    
+    
+    public static function validateString( $str ) 
+        {
+            if ( is_string($str) && !empty($str) ) 
+                {
+                    
+                    return true;
+                    
+                }        
+            else return false; 
+        }
+    
     public static function validateEmail( $email ) 
         {
         

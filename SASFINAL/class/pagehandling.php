@@ -17,7 +17,7 @@ class pagehandling
     {
         $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
 
-            $stmt = $db->prepare('select * from page where title = :getValue');
+            $stmt = $db->prepare('select * from page where user_id in(select user_id from users where website = :getValue)');
             $stmt->bindParam(':getValue', $GET, PDO::PARAM_STR);
 
             $stmt->execute();

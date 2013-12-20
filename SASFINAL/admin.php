@@ -45,8 +45,32 @@ and open the template in the editor.
                     
                     if (isset($_SESSION['adminID']))
                     {
+                        
+                        if (!dbasevalidator::validateUrl($_POST['SiteName']))
+                   {
+                       echo '<div class="errdiv"><h3 class="err">Url Cannot Be Blank<br/>Url Can Only Contain Letters</h3></div>';
+                   }
+                   else if (dbasevalidator::validateEmail($_POST['email'])==false)
+                        {
+                            echo '<div class="errdiv"><h3 class="err">Email Invalid</h3></div>';
+                        }
+                   else if (dbasevalidator::duplicateemail($_POST['email'])==true)
+                       {
+                           echo '<div class="errdiv"><h3 class="err">Email Exists</h3></div>';
+                           
+                       }
+                   
+                   else if (!dbasevalidator::validatePassword($_POST['password']))
+                   {
+                       echo '<div class="errdiv"><h3 class="err">Fields Cannot Be Blank</h3></div>';
+                   }
+                        
+                        
+                        
+                        
                         $_POST['adminID']=$_SESSION['adminID'];
                         dbaseIO::addPage($_POST);
+                        
                         
                         
                     }

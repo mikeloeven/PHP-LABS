@@ -31,6 +31,10 @@ and open the template in the editor.
                 header("Location:login.php?form=login");
                
             }
+        if($_SESSION["loggedIn"]==true)
+        {
+            header("Location:admin.php");
+        }
         else if (count($_GET)>=1)
         {
 
@@ -44,10 +48,7 @@ and open the template in the editor.
             }
             
         }
-        else if($_SESSION["loggedIn"]==true)
-        {
-            header("Location:admin.php");
-        }
+        
         //returns you to the index if your form strings are empty
         else 
         {
@@ -57,7 +58,7 @@ and open the template in the editor.
 
     <body>
        <div class="title"><a href = "index.php" style="text-decoration: none"><h1 class="title">█ SAAS DEMO █</h1></a></div>
-        <div class="navbar"><div class="button"><a href="login.php?form=login"><h3 class="title"> Login </h3></a></div><div class="button"><a href="login.php?form=signup"><h3 class="title"> Signup </h3></a></div></div>
+        <div class="navbar"><div class="button"><a href="webpage.php"><h3 class="title"> PageIndex </h3></a></div><div class="button"><a href="login.php?form=login"><h3 class="title"> Login </h3></a></div><div class="button"><a href="login.php?form=signup"><h3 class="title"> Signup </h3></a></div></div>
         <div class="bodydiv">
             <?php 
            //checks if post is set before doing anything
