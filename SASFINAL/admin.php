@@ -6,6 +6,21 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
+        <?PHP
+        include'dependancies.php';
+        if (isset($_SESSION['loggedIn']))
+            {
+                if ($_SESSION['loggedIn']==true)
+                {
+                    print_r($_SESSION);
+                }
+            }
+         else{
+              
+//header("Location:login.php?form=login");}   
+             }
+        
+        ?>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="css/Minecraft.css">
@@ -20,13 +35,15 @@ and open the template in the editor.
                 <h3 class ="subtitle">Login</h3>
                 
            <?php
+                
+                
                 if (isset($_POST['update'])&&$_POST['update']==true)
                 {
                     
-                    if (isset($_POST['adminID']) && !dbasevalidator::getPAGEID($_POST['adminID']))
-                        [
-                            
-                        ]
+                    if (isset($_POST['adminID']))
+                    {
+                        dbaseIO::addPage ($_POST);
+                    }
                     
                     
                     
@@ -36,8 +53,8 @@ and open the template in the editor.
            <form name="login" class="signup" action="" method="post">
            
                
-           <Label> Address: </Label><br/>
-           <input type="text" name="address" value=""/>
+           <Label> Title: </Label><br/>
+           <input type="text" name="title" value=""/>
            <br/>
            <br/>            
            <Label> theme: </Label> <br/>

@@ -28,6 +28,7 @@ and open the template in the editor.
             {   
                 $_SESSION["loggedIn"]=false;
                 session_destroy();
+                header("Location:login.php?form=login");
                
             }
         else if (count($_GET)>=1)
@@ -113,9 +114,20 @@ and open the template in the editor.
                       
                    if (dbasevalidator::validateCredentials($_POST['LIemail'], $_POST['LIpassword']))
                    {
-                       $_SESSION['loggedIn']=true;
-                       $_SESSION['adminID']= dbasevalidator::getUID($_POST['LIemail']);
-                       header("Location:admin.php");
+                       if (!isset($_SESSION))
+                       {
+                           session_start();
+                           $_SESSION['loggedIn']=true;
+                           $_SESSION['adminID']= dbasevalidator::getUID($_POST['LIemail']);
+                       }
+                       else
+                       {
+                        $_SESSION['loggedIn']=true;
+                        $_SESSION['adminID']= dbasevalidator::getUID($_POST['LIemail']);
+                        print_r($_SESSION);
+                       //header("Location:admin.php");
+                       }
+                       
                        
                              
                    }
@@ -192,5 +204,7 @@ and open the template in the editor.
                             
             }
             ?>
+            
+            
     </body>
 </html>

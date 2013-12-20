@@ -16,11 +16,11 @@ if (!isset($_SESSION))
 session_start();
 }
 session_regenerate_id(true);
-if(isset($_SESSION["loggedin"]))
+if(isset($_SESSION["loggedIn"]))
 {
     session_regenerate_id(true);
 }
-else{$_SESSION["loggedin"]=false;}
+else{$_SESSION["loggedIn"]=false;}
 
         
         
