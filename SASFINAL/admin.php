@@ -45,8 +45,8 @@ and open the template in the editor.
                     
                     if (isset($_SESSION['adminID']))
                     {
-                        
-                        if (!dbasevalidator::validateUrl($_POST['SiteName']))
+                       
+                        if (!dbasevalidator::validateString($_POST['SiteName']))
                    {
                        echo '<div class="errdiv"><h3 class="err">Url Cannot Be Blank<br/>Url Can Only Contain Letters</h3></div>';
                    }
@@ -65,7 +65,7 @@ and open the template in the editor.
                        echo '<div class="errdiv"><h3 class="err">Fields Cannot Be Blank</h3></div>';
                    }
                         
-                        
+                       
                         
                         
                         $_POST['adminID']=$_SESSION['adminID'];

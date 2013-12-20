@@ -20,6 +20,23 @@ div.bodydiv {
     border-right:saddlebrown solid 4px;
     border-top:saddlebrown solid 4px;
 }
+div.boxdiv
+{
+     background-color: lightslategray;
+    color: white;
+    border: #888 solid;
+   
+    
+}
+div.boxdiv2
+{
+     background-color: lightslategray;
+    color: white;
+    border: #888 solid;
+     display: inline-block;
+   
+    
+}
 div.hiddendiv {display:none}
 body{
 align:center;
@@ -85,6 +102,7 @@ div.navbar{
           
 
 }
+
 div.button
 {
     display: inline-block;
@@ -160,6 +178,7 @@ textarea
     border: #888 solid;
     
 }
+
 
 
 a{text-decoration: none; color: inherit;}

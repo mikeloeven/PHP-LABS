@@ -13,7 +13,23 @@ and open the template in the editor.
     <body>
         <div class="title"><a href = "index.php" style="text-decoration: none"><h1 class="title">█ SAAS DEMO █</h1></a></div>
        <div class="navbar"><div class="button"><a href="webpage.php"><h3 class="title"> PageIndex </h3></a></div><div class="button"><a href="login.php?form=login"><h3 class="title"> Login </h3></a></div><div class="button"><a href="login.php?logout=true&form=login"><h3 class="title"> Logout </h3></a></div></div>
-        <div class="bodydiv"><h1 style="text-align: center;">test</h1>
+        <div class="bodydiv">
+            
+        <h1 id="title" style="text-align: center;">test</h1>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="boxdiv"> <h3 class="title" id="subtitle" style="text-align: center"> </h3></div>
+        <br/>
+        <div class="boxdiv2"> <h3 class="title" id="OTHER" style="text-align: center;   ">SDFG </h3></div>
+         <div class="boxdiv2"> <h3 class="title" id="OTHER" style="text-align: center">SDFG </h3></div>
+          <div class="boxdiv2"> <h3 class="title" id="OTHER" style="text-align: center">SDFG </h3></div>
+  
+        
+        
+        
+            
         
             
             <?php
@@ -34,9 +50,22 @@ and open the template in the editor.
                     $pageinfo = pagehandling::pageinfobyGET($_GET['pagename']);
                     //formselector::themeSelect($pageinfo);
                     $pageinfo = $pageinfo[0];
+                                 
                     formselector::themeSelect($pageinfo);
                     
+                    echo '<script type="text/javascript">';
+                    echo 'document.getElementById("subtitle").innerHTML = "'.$pageinfo["title"].'"';
+                    echo '</script>';
                     
+                    echo '<script type="text/javascript">';
+                    echo 'document.getElementById("subtitle").innerHTML = "'.$pageinfo["title"].'"';
+                    echo '</script>';
+                    
+                    echo '<script type="text/javascript">';
+                    echo 'document.getElementById("subtitle").innerHTML = "'.$pageinfo["title"].'"';
+                    echo '</script>';
+                   
+                    print_r($pageinfo);
                     
                     
                     $existflag = true;

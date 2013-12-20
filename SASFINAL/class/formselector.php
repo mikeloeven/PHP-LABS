@@ -47,7 +47,7 @@ class formselector {
         
         
         echo '<script type="text/javascript">';
-        echo 'document.getElementById("theme").href = "css/'.$theme.'"';
+        echo 'document.getElementById("theme").href = "css/'.$theme.'";';
         echo '</script>';
     }
 }
