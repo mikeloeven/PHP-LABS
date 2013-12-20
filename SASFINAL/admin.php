@@ -14,10 +14,12 @@ and open the template in the editor.
                 {
                     print_r($_SESSION);
                 }
+                else{              
+                header("Location:login.php?form=login");
+                }
             }
-         else{
-              
-//header("Location:login.php?form=login");}   
+         else{              
+                header("Location:login.php?form=login");
              }
         
         ?>
@@ -35,14 +37,18 @@ and open the template in the editor.
                 <h3 class ="subtitle">Login</h3>
                 
            <?php
-                
-                
-                if (isset($_POST['update'])&&$_POST['update']==true)
+                include'dependancies.php';
+                print_r($_POST);
+                print_r($_SESSION);
+                if (isset($_POST['update'])&&$_POST['update']=="update")
                 {
                     
-                    if (isset($_POST['adminID']))
+                    if (isset($_SESSION['adminID']))
                     {
-                        dbaseIO::addPage ($_POST);
+                        $_POST['adminID']=$_SESSION['adminID'];
+                        dbaseIO::addPage($_POST);
+                        
+                        
                     }
                     
                     
@@ -81,7 +87,7 @@ and open the template in the editor.
            <textarea name="About" rows ="10"></textarea>
            <br/>
            <br/>
-           <input type="hidden" name ="update" value="true"
+           <input type="hidden" name ="update" value="update"/>
            <input type="submit" value="submit"/>
            </form>
            </div>

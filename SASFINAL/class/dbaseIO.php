@@ -63,18 +63,20 @@ class dbaseIO {
         $address = $POST['address'];
         $phone = $POST['phone'];
         $email = $POST['email'];
-        $about = $POST['about'];
+        $about = $POST['About'];
         
         
         
         try{
         $stmt = $db->prepare('
-    delete * from page where user_id = :UIDValue;          
-    insert into page set user_id = :uidValue, title = :titleValue, address = :addressvalue, phone = :phoneValue, about = :aboutValue;
+    delete from page where user_id = :delVal;          
+    insert into page set user_id = :uidValue, title = :titleValue, theme = :themeValue, address = :addressValue, phone = :phoneValue, email = :emailValue, about = :aboutValue;
     ');
 
+        $stmt->bindParam(':delVal', $UID, PDO::PARAM_STR);
         $stmt->bindParam(':uidValue', $UID, PDO::PARAM_STR);
         $stmt->bindParam(':titleValue', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':themeValue', $theme, PDO::PARAM_STR);
         $stmt->bindParam(':addressValue', $address, PDO::PARAM_STR);
         $stmt->bindParam(':phoneValue', $phone, PDO::PARAM_STR);
         $stmt->bindParam(':emailValue', $email, PDO::PARAM_STR);

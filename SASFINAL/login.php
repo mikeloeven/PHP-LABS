@@ -127,7 +127,7 @@ and open the template in the editor.
                         
                         $_SESSION['adminID']= dbasevalidator::getUID($_POST['LIemail']);
                         //print_r($_SESSION['adminID']);
-                       //header("Location:admin.php");
+                       header("Location:admin.php");
                        }
                        
                        
