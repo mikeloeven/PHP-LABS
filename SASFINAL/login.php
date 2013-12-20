@@ -24,7 +24,13 @@ and open the template in the editor.
         
         
         //RETURNS USER TO INDEX IF A FORM IS NOT SPECIFIED
-        if (count($_GET)>=1)
+        if(isset($_GET["logout"])&&$_GET["logout"]==true)
+            {   
+                $_SESSION["loggedIn"]=false;
+                session_destroy();
+               
+            }
+        else if (count($_GET)>=1)
         {
 
             if($_GET["form"]=="login")
@@ -35,14 +41,9 @@ and open the template in the editor.
             {
                 
             }
-            if($_GET["logout"]==true)
-            {   
-                $_SESSION["loggedIn"]=false;
-                session_destroy();
-               
-            }
+            
         }
-        if($_SESSION["loggedIn"]==true)
+        else if($_SESSION["loggedIn"]==true)
         {
             header("Location:admin.php");
         }
@@ -127,34 +128,7 @@ and open the template in the editor.
            }     
                    
                    
-                   /*$err=0;
-                   if 
-                   (
-                   dbasevalidator::LoginEmail($_POST['email'])==true
-                   &&
-                   dbasevalidator::LoginPassword($_POST['password'])==true
-                   &&
-                   dbasevalidator::LoginUser($_POST['username'])==true
-                   )
-                       
-                       
-                   {
-                       
-                       if (dbasevalidator::duplicateemail($_POST['email'])==true)
-                       {
-                           echo '<div class="errdiv"><h3 class="err">email exists</h3></div>';
-                           
-                       }
-                   }
-               }
-               else if (count($_POST)==2)
-               {
-                   
-               }
-               else
-               {
-                   
-               }*/
+                 
        
            
 ?>  

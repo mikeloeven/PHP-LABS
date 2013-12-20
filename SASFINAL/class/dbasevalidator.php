@@ -43,7 +43,8 @@ class dbasevalidator {
         }
     
 
-    
+    //checks user and password against database
+        
     public static function validateCredentials( $email, $password ) 
         {
             $password = sha1($password);

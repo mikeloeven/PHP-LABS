@@ -137,7 +137,14 @@ background-size:130% 100%;
 background-position: center ;
 
 }
+select
+{
+    background-color: lightslategray;
+    color: white;
+    border: #888 solid;
 
+    
+}
 input
 {
     background-color: lightslategray;

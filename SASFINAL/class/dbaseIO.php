@@ -43,6 +43,12 @@ class dbaseIO {
         }
         return $Msg;
     }
+    
+    
+    public static function dumpPageData()
+    {
+        
+    }
             
 }
 
