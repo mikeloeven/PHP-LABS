@@ -112,7 +112,8 @@ class dbasevalidator {
             
             
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchColumn(0);
+            
            
             return $result;
     }
@@ -125,9 +126,10 @@ class dbasevalidator {
             
             
             $stmt->execute();
-            $result = $stmt->fetchAll();
-            print_r($result);
-            return $result;
+            $result = $stmt->fetchColumn('user_id');
+            
+                        
+                return $result;
     }
             
 }

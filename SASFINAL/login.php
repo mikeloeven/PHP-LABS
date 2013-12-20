@@ -123,8 +123,10 @@ and open the template in the editor.
                        else
                        {
                         $_SESSION['loggedIn']=true;
+                       
+                        
                         $_SESSION['adminID']= dbasevalidator::getUID($_POST['LIemail']);
-                        print_r($_SESSION);
+                        //print_r($_SESSION['adminID']);
                        //header("Location:admin.php");
                        }
                        
