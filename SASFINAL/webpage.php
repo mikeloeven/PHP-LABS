@@ -16,30 +16,14 @@ and open the template in the editor.
         
             
             <?php
+            
             include 'dependancies.php';
+            $existflag = false;
             if (isset($_GET['pagename']))
             {
                 if(!pagehandling::pageinfobyGET($_GET['pagename']))
                 {
-                    echo '<h3>invalid page, showing index</h3>';
                     
-                    $table = pagehandling::pageindex();
-                    if (!$table)
-                    {
-                        echo '<h3>empty database</h3>';
-                    }
-                    else 
-                    {
-                        print_r($table);
-                        foreach ($table as $col)
-                        {   
-                            echo $col;
-                            foreach ($col as $line)
-                            {
-                                echo $line;
-                            }
-                        }
-                    }
                     
                     
                 }
@@ -52,7 +36,8 @@ and open the template in the editor.
                 
                 
             }
-            else
+            
+            if ($existflag == false)
             {
                 echo '<h3>invalid page, showing index</h3>';
                     
@@ -67,7 +52,7 @@ and open the template in the editor.
                         foreach ($table as $col)
                         {
                             echo '<h3>';
-                            echo '<a href=http://localhost/SASFINAL/webpage.php?pagename='.$col['title'].'>';
+                            echo '<a href=http://localhost/SASFINAL/webpage.php?pagename='.$col['website'].'>';
                             foreach ($col as $line)
                             {
                                echo $line;

@@ -52,7 +52,7 @@ class pagehandling
     public static function pageindex()
     {
         $db = new PDO(saasConfig::DB_DNS ,saasConfig::DB_USER,saasConfig::DB_PASSWORD);
-        $stmt = $db->prepare('select page_id, title from page');
+        $stmt = $db->prepare('select website from users inner join page on users.user_id = page.user_id');
         $stmt ->execute();
         $result = array();
         
