@@ -32,8 +32,9 @@ and open the template in the editor.
                 else 
                 {
                     $pageinfo = pagehandling::pageinfobyGET($_GET['pagename']);
+                    //formselector::themeSelect($pageinfo);
+                    $pageinfo = $pageinfo[0];
                     formselector::themeSelect($pageinfo);
-                    print_r($pageinfo);
                     
                     
                     
