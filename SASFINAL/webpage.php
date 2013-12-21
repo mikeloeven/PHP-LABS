@@ -80,7 +80,7 @@ and open the template in the editor.
                         document.getElementById("address").innerHTML = "'.$pageinfo["address"].'";
                         document.getElementById("phone").innerHTML = "'.$pageinfo["phone"].'";
                         document.getElementById("email").innerHTML = "'.$pageinfo["email"].'";
-                        document.getElementById("about").innerHTML = "'.$pageinfo["about"].'";
+                        document.getElementById("about").innerHTML = \''.$pageinfo["about"].'\';
                         
             
                         </script>';

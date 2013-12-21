@@ -50,20 +50,14 @@ and open the template in the editor.
                    {
                        echo '<div class="errdiv"><h3 class="err">Cannot be blank</h3></div>';
                    }
-                   else if (dbasevalidator::validateString($_POST['address'])==false)
-                        {
-                            echo '<div class="errdiv"><h3 class="err">Email Invalid</h3></div>';
-                        }
-                   else if (dbasevalidator::duplicateemail($_POST['email'])==true)
+                 
+                   else if (dbasevalidator::validateEmail($_POST['email'])==true)
                        {
-                           echo '<div class="errdiv"><h3 class="err">Email Exists</h3></div>';
+                           echo '<div class="errdiv"><h3 class="err">Invalid or blank Email</h3></div>';
                            
                        }
                    
-                   else if (!dbasevalidator::validatePassword($_POST['password']))
-                   {
-                       echo '<div class="errdiv"><h3 class="err">Fields Cannot Be Blank</h3></div>';
-                   }
+                   
                         // end of validation
                        
                         
