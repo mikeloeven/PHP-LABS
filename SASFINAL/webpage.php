@@ -73,14 +73,15 @@ and open the template in the editor.
                                  
                     formselector::themeSelect($pageinfo);
                     //INSERT DATA HERE 
+                    
                     echo '
                         <script type="text/javascript">
                       
-                        document.getElementById("subtitle").innerHTML = "'.$pageinfo["title"].'";
-                        document.getElementById("address").innerHTML = "'.$pageinfo["address"].'";
-                        document.getElementById("phone").innerHTML = "'.$pageinfo["phone"].'";
-                        document.getElementById("email").innerHTML = "'.$pageinfo["email"].'";
-                        document.getElementById("about").innerHTML = \''.$pageinfo["about"].'\';
+                        document.getElementById("subtitle").textContent = "'.$pageinfo["title"].'";
+                        document.getElementById("address").textContent = "'.$pageinfo["address"].'";
+                        document.getElementById("phone").textContent = "'.$pageinfo["phone"].'";
+                        document.getElementById("email").textContent = "'.$pageinfo["email"].'";
+                        document.getElementById("about").textContent = '.json_encode($pageinfo["about"]).';
                         
             
                         </script>';
