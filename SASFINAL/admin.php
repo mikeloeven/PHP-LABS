@@ -51,11 +51,15 @@ and open the template in the editor.
                        echo '<div class="errdiv"><h3 class="err">Cannot be blank</h3></div>';
                    }
                  
-                   else if (!dbasevalidator::validateEmail($_POST['email'])==true)
+                   else if (!dbasevalidator::validateEmail($_POST['email']))
                        {
                            echo '<div class="errdiv"><h3 class="err">Invalid or blank Email</h3></div>';
                            
                        }
+                   else if (!dbasevalidator::validatePhone($_POST['phone']))
+                   {
+                       echo '<div class="errdiv"><h3 class="err">Invalid or blank Email</h3></div>';
+                   }
                    
                    
                         // end of validation

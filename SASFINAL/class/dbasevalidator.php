@@ -50,7 +50,7 @@ class dbasevalidator {
         {
             if ( is_string($url) && !empty($url) ) 
                 {
-                    if (preg_match('\((?<AreaCode>\d{3})\)\s*(?<Number>\d{3}(?:-|\s*)\d{4})', $url))
+                    if (preg_match('/((?<AreaCode>\d{3})\)\s*(?<Number>\d{3}(?:-|\s*)\d{4})/', $url))
                     {
                     return true;
                     }
