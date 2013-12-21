@@ -46,11 +46,11 @@ and open the template in the editor.
                     if (isset($_SESSION['adminID']))
                     {
                        
-                        if (!dbasevalidator::validateString($_POST['SiteName']))
+                        if (!dbasevalidator::validateString($_POST['title'])||dbasevalidator::validateString($_POST['address']))
                    {
-                       echo '<div class="errdiv"><h3 class="err">Url Cannot Be Blank<br/>Url Can Only Contain Letters</h3></div>';
+                       echo '<div class="errdiv"><h3 class="err">Cannot be blank</h3></div>';
                    }
-                   else if (dbasevalidator::validateEmail($_POST['email'])==false)
+                   else if (dbasevalidator::validateString($_POST['address'])==false)
                         {
                             echo '<div class="errdiv"><h3 class="err">Email Invalid</h3></div>';
                         }
@@ -64,7 +64,7 @@ and open the template in the editor.
                    {
                        echo '<div class="errdiv"><h3 class="err">Fields Cannot Be Blank</h3></div>';
                    }
-                        
+                        // end of validation
                        
                         
                         
